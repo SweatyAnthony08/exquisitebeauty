@@ -126,9 +126,7 @@
 
 <section id="booking">
   <h2>Book an Appointment</h2>
-  <section id="booking">
-  <h2>Book an Appointment</h2>
-  <form action="https://formspree.io/f/meozwpdr" method="POST">
+  <form id="booking-form" action="https://formspree.io/f/meozwpdr" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
     <select name="service" required>
@@ -142,9 +140,12 @@
     <textarea name="message" placeholder="Extra details..."></textarea>
     <button type="submit">Submit Booking</button>
   </form>
+  <p id="thank-you" style="display:none; text-align:center; margin-top:20px; font-weight:bold; color:green;">
+    Thank you! Your booking has been received.
+  </p>
 </section>
 
-  <section id="contact">
+<section id="contact">
   <h2>Contact Us</h2>
   <p>📍 118 Church Elm Lane RM10 9RL, Dagenham</p>
   <p>📞 07908078010</p>
@@ -155,9 +156,31 @@
   <p>&copy; 2025 Exquisite Beauty. All Rights Reserved.</p>
 </footer>
 
+<script>
+  const form = document.getElementById('booking-form');
+  const thankYou = document.getElementById('thank-you');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent normal form submission
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        thankYou.style.display = 'block';
+        form.reset();
+      } else {
+        alert('Oops! There was a problem submitting your booking.');
+      }
+    }).catch(error => {
+      alert('Oops! There was a problem submitting your booking.');
+    });
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
