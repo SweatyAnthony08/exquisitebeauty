@@ -126,7 +126,24 @@
 
 <section id="booking">
   <h2>Book an Appointment</h2>
-  <form>
+  <section id="booking">
+  <h2>Book an Appointment</h2>
+  <form action="https://formspree.io/f/meozwpdr" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option>Braiding</option>
+      <option>Weave</option>
+      <option>Natural Hair Care</option>
+    </select>
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+    <textarea name="message" placeholder="Extra details..."></textarea>
+    <button type="submit">Submit Booking</button>
+  </form>
+</section>
+
     <input type="text" placeholder="Your Name" required>
     <input type="email" placeholder="Email Address" required>
     <select required>
@@ -154,4 +171,5 @@
 
 </body>
 </html>
+
 
