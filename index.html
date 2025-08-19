@@ -1,186 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exquisite Beauty</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exquisite Beauty — African Caribbean Hair & Beauty</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #333;
+    :root{
+      --bg:#0e0d0f;         /* deep charcoal */
+      --bg-2:#121116;       /* slightly lighter */
+      --text:#f3f3f3;       /* soft white */
+      --muted:#c9c9c9;      /* muted text */
+      --gold:#d4af37;       /* luxury gold */
+      --gold-2:#b9961f;     /* darker gold for hover */
+      --accent:#6a2e6f;     /* regal plum */
     }
-    header {
-      background: linear-gradient(to right, #a87ca0, #d4af37);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3em;
-      margin: 0;
-    }
-    nav {
-      background: #222;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .services, .gallery {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: #f9f9f9;
-      padding: 20px;
-      flex: 1 1 calc(33% - 40px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      text-align: center;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    form {
-      display: grid;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-    }
-    input, select, textarea, button {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #d4af37;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(14,13,15,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-badge{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f5d46a);display:grid;place-items:center;color:#000;font-weight:700}
+    .brand h1{font-family:'Playfair Display',serif;font-size:20px;margin:0}
+    .nav a.link{opacity:.9;margin:0 10px}
+    .cta{padding:10px 16px;border-radius:999px;background:var(--gold);color:#000;font-weight:600;border:1px solid rgba(0,0,0,.2)}
+    .cta:hover{background:var(--gold-2)}
+
+    /* HERO */
+    .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:radial-gradient(60% 60% at 70% 30%, rgba(212,175,55,.18), transparent 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%)}
+    .hero-inner{display:grid;gap:16px;text-align:center;padding:90px 0}
+    .headline{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,56px);line-height:1.06;margin:0}
+    .sub{color:var(--muted);font-size:clamp(14px,2.5vw,18px)}
+    .hero-actions{display:flex;gap:12px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#1b1a20;color:#fff}
+    .btn:hover{border-color:rgba(212,175,55,.8);color:var(--gold)}
+    .btn-primary{background:var(--gold);color:#000;border:none;font-weight:700}
+    .btn-primary:hover{background:var(--gold-2)}
+
+    /* SECTIONS */
+    section{padding:70px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);margin:0 0 14px}
+    p.section-lead{color:var(--muted);margin:0 0 24px}
+
+    /* SERVICES GRID */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,#17151c, #141319);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px}
+    .card h3{margin:6px 0 6px;font-size:18px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);font-size:12px;opacity:.85}
+
+    /* PRICING TABLE */
+    .pricing{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:900px){.pricing{grid-template-columns:1fr}}
+    table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    th{text-align:left;color:var(--muted);font-weight:600;padding:6px 10px}
+    td{padding:14px 12px;background:#16151b;border:1px solid rgba(255,255,255,.06)}
+    td:first-child{border-radius:12px 0 0 12px}
+    td:last-child{border-radius:0 12px 12px 0;text-align:right;color:var(--gold);font-weight:600}
+
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media(max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:620px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .gallery figure{position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+    .gallery img{transition:transform .45s ease}
+    .gallery figure:hover img{transform:scale(1.06)}
+
+    /* VIDEOS */
+    .videos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:900px){.videos{grid-template-columns:1fr}}
+    .video-wrap{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%}
+
+    /* SALES + HOURS */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media(max-width:900px){.two-col{grid-template-columns:1fr}}
+    .list{display:grid;gap:8px}
+    .list li{background:#16151b;border:1px solid rgba(255,255,255,.06);padding:10px 12px;border-radius:10px}
+
+    /* CONTACT */
+    .contact-card{display:grid;gap:14px;background:linear-gradient(180deg,#17151c,#13121a);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+    .contact-row{display:flex;gap:12px;align-items:center}
+    .icon{width:22px;height:22px;display:inline-block}
+
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Exquisite Beauty</h1>
-  <p>Where heritage meets style</p>
-  <a href="#booking"><button>Book Now</button></a>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#booking">Booking</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>About Us</h2>
-  <p>At Exquisite Beauty, we specialise in Afro-Caribbean hair care, celebrating natural beauty through braids, weaves, and protective styles. Our mission is to make every client feel radiant and confident.</p>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Braiding</h3><p>Elegant and protective styles.</p></div>
-    <div class="card"><h3>Weaves</h3><p>Luxury extensions and styling.</p></div>
-    <div class="card"><h3>Natural Hair Care</h3><p>Healthy, nourishing treatments.</p></div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">EB</div>
+        <h1>Exquisite Beauty</h1>
+      </div>
+      <div>
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#pricing">Pricing</a>
+        <a class="link" href="#gallery">Gallery</a>
+        <a class="link" href="#videos">Videos</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="cta" href="booking.html">Book Now</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<section id="gallery">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/300x300" alt="Style 1">
-    <img src="https://via.placeholder.com/300x300" alt="Style 2">
-    <img src="https://via.placeholder.com/300x300" alt="Style 3">
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h2 class="headline">Where Heritage Meets Style</h2>
+      <p class="sub">Specialists in African & Caribbean hair — braids, knotless twists, cornrows, weaves, protective styles, and premium beauty services.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="booking.html">Book Your Appointment</a>
+        <a class="btn" href="#pricing">View Pricing</a>
+      </div>
+    </div>
+  </section>
 
-<section id="booking">
-  <h2>Book an Appointment</h2>
-  <form id="booking-form" action="https://formspree.io/f/meozwpdr" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <select name="service" required>
-      <option value="">Select Service</option>
-      <option>Braiding</option>
-      <option>Weave</option>
-      <option>Natural Hair Care</option>
-    </select>
-    <input type="date" name="date" required>
-    <input type="time" name="time" required>
-    <textarea name="message" placeholder="Extra details..."></textarea>
-    <button type="submit">Submit Booking</button>
-  </form>
-  <p id="thank-you" style="display:none; text-align:center; margin-top:20px; font-weight:bold; color:green;">
-    Thank you! Your booking has been received.
-  </p>
-</section>
+  <!-- ABOUT / USP -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Our Promise</h2>
+      <p class="section-lead">Exquisite Beauty is a premium African Caribbean salon crafting elegant, protective, and fashion‑forward looks. Healthy hair first, artistry always. Experience expert techniques, luxury products, and warm community‑focused care.</p>
+      <div class="grid">
+        <div class="card"><span class="chip">Healthy Hair</span><h3>Protective Styling</h3><p class="muted">Gentle methods that nourish your natural texture while looking flawless.</p></div>
+        <div class="card"><span class="chip">Luxury Finish</span><h3>Premium Products</h3><p>We use salon‑grade brands for shine, longevity, and scalp comfort.</p></div>
+        <div class="card"><span class="chip">Expert Hands</span><h3>Afro & Curly Specialists</h3><p>Skilled stylists trained across braids, weaves, relaxers, and treatments.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>📍 118 Church Elm Lane RM10 9RL, Dagenham</p>
-  <p>📞 07908078010</p>
-  <p>📧 oodumosu@yahoo.co.uk</p>
-</section>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Signature Services</h2>
+      <p class="section-lead">Everything you need from hair to brows, delivered with precision.</p>
+      <div class="grid">
+        <div class="card"><h3>Braids & Knotless Twisting</h3></div>
+        <div class="card"><h3>Cornrows</h3></div>
+        <div class="card"><h3>Weave On / Pick & Drop</h3></div>
+        <div class="card"><h3>Relaxing</h3></div>
+        <div class="card"><h3>Bonding</h3></div>
+        <div class="card"><h3>Perms</h3></div>
+        <div class="card"><h3>Ponytail</h3></div>
+        <div class="card"><h3>Wash & Tong</h3></div>
+        <div class="card"><h3>Hair Treatment</h3></div>
+        <div class="card"><h3>Eyelash Extension</h3></div>
+        <div class="card"><h3>Cluster Lashes</h3></div>
+        <div class="card"><h3>Express Lashes</h3></div>
+        <div class="card"><h3>Brow Lamination</h3></div>
+        <div class="card"><h3>Permanent / Semi‑Permanent Brows</h3></div>
+        <div class="card"><h3>Ombre / Powder Brows</h3></div>
+        <div class="card"><h3>Ear & Nose Piercing</h3></div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Exquisite Beauty. All Rights Reserved.</p>
-</footer>
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Pricing Guide</h2>
+      <p class="section-lead">Transparent pricing for popular services. Prices may vary based on length, volume, and style complexity.</p>
+      <div class="pricing">
+        <div class="card">
+          <table>
+            <thead>
+              <tr><th>Hair Services</th><th>From</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Braids & Knotless Twisting</td><td>£ —</td></tr>
+              <tr><td>Cornrows</td><td>£ —</td></tr>
+              <tr><td>Weave On / Pick & Drop</td><td>£ —</td></tr>
+              <tr><td>Relaxing</td><td>£ —</td></tr>
+              <tr><td>Bonding</td><td>£ —</td></tr>
+              <tr><td>Perms</td><td>£ —</td></tr>
+              <tr><td>Ponytail</td><td>£ —</td></tr>
+              <tr><td>Wash & Tong</td><td>£ —</td></tr>
+              <tr><td>Hair Treatment</td><td>£ —</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <table>
+            <thead>
+              <tr><th>Beauty & Brows</th><th>From</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Eyelash Extension</td><td>£ —</td></tr>
+              <tr><td>Cluster Lashes</td><td>£ —</td></tr>
+              <tr><td>Express Lashes</td><td>£ —</td></tr>
+              <tr><td>Brow Lamination</td><td>£ —</td></tr>
+              <tr><td>Permanent / Semi‑Permanent Brows</td><td>£ —</td></tr>
+              <tr><td>Ombre / Powder Brows</td><td>£ —</td></tr>
+              <tr><td>Ear / Nose Piercing</td><td>£ —</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="margin-top:16px" class="container">
+        <a class="btn-primary" href="booking.html">Book now — secure your slot</a>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const form = document.getElementById('booking-form');
-  const thankYou = document.getElementById('thank-you');
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-lead">A glimpse of our recent work. Swap these placeholders with your own photos later.</p>
+      <div class="gallery">
+        <figure><img src="https://images.unsplash.com/photo-1593702295097-7b7e6c629eee?q=80&w=1200&auto=format&fit=crop" alt="Braids style" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Cornrows" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Weave" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?q=80&w=1200&auto=format&fit=crop" alt="Salon finish" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1621786037986-c6c1e3b1c133?q=80&w=1200&auto=format&fit=crop" alt="Lashes" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Treatment" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Protective style" /></figure>
+        <figure><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Afro hair" /></figure>
+      </div>
+    </div>
+  </section>
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent normal form submission
-    const data = new FormData(form);
+  <!-- VIDEOS -->
+  <section id="videos">
+    <div class="container">
+      <h2 class="section-title">Videos</h2>
+      <p class="section-lead">Add your own clips or YouTube links to showcase transformations and technique.</p>
+      <div class="videos">
+        <div class="video-wrap">
+          <!-- Replace with your own YouTube embed or MP4 source -->
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Salon video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrap">
+          <video controls poster="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+            <source src="https://cdn.coverr.co/videos/coverr-hair-salon-1105/1080p.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.style.display = 'none';
-        thankYou.style.display = 'block';
-        form.reset();
-      } else {
-        alert('Oops! There was a problem submitting your booking.');
-      }
-    }).catch(error => {
-      alert('Oops! There was a problem submitting your booking.');
-    });
-  });
-</script>
+  <!-- SALES + HOURS -->
+  <section id="sales-hours">
+    <div class="container two-col">
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom:6px">Retail Sales</h2>
+        <p class="section-lead">Premium products available in‑store.</p>
+        <ul class="list">
+          <li>Hair Extensions</li>
+          <li>Wigs</li>
+          <li>African Fabrics</li>
+          <li>Shoes & Bags</li>
+          <li>Jewellery & Beads</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom:6px">Opening Times</h2>
+        <ul class="list">
+          <li>Monday — Friday: 10:00 – 20:00</li>
+          <li>Saturday: 09:00 – 21:00</li>
+          <li>Sunday: Closed</li>
+        </ul>
+        <div style="margin-top:10px"><a class="btn-primary" href="booking.html">Book a Slot</a></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="icon" aria-hidden="true">📍</span>
+          <div>118 Church Elm Lane, Dagenham, RM10 9RL</div>
+        </div>
+        <div class="contact-row">
+          <span class="icon" aria-hidden="true">📞</span>
+          <div>
+            <a href="tel:+447777147949">07777 147 949</a> · <a href="tel:+447939298848">07939 298 848</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="icon" aria-hidden="true">✉️</span>
+          <div><a href="mailto:exquisitebeautyw@gmail.com">exquisitebeautyw@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <!-- Simple inline SVG icons for Instagram & X -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+          <a href="https://instagram.com/exquisitebeautyw" target="_blank" rel="noopener">@exquisitebeautyw</a>
+        </div>
+        <div class="contact-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.9 3.1c-.6.2-1.3.5-2 .6.7-.4 1.2-1.1 1.4-1.9-.7.4-1.4.7-2.2.9A3.3 3.3 0 0 0 12 5.8c0 .3 0 .6.1.9C8.5 6.5 5.5 4.9 3.5 2.6c-.4.7-.6 1.5-.6 2.4 0 1.6.8 3 2.1 3.8-.6 0-1.2-.2-1.8-.5v.1c0 2.3 1.7 4.2 3.8 4.7-.4.1-.8.1-1.2.1-.3 0-.6 0-.9-.1a3.3 3.3 0 0 0 3.1 2.3A6.6 6.6 0 0 1 2 18.3c-.4 0-.8 0-1.2-.1A9.3 9.3 0 0 0 6.2 20c6.6 0 10.2-5.5 10.2-10.2v-.5c.7-.5 1.3-1.1 1.8-1.8-.6.3-1.3.5-2 .6.7-.4 1.2-1.1 1.5-1.9z"/></svg>
+          <a href="https://twitter.com/exquisitebworld" target="_blank" rel="noopener">@exquisitebworld</a>
+        </div>
+        <div class="contact-row">
+          <span class="icon" aria-hidden="true">🕘</span>
+          <div>Mon–Fri 10am–8pm · Sat 9am–9pm</div>
+        </div>
+        <div class="contact-row">
+          <span class="icon" aria-hidden="true">💬</span>
+          <div><a class="btn" href="booking.html">Book online — quick response</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 Exquisite Beauty. All rights reserved.</div>
+  </footer>
 </body>
 </html>
