@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f0e12;
-      --panel:#15141b;
-      --panel-2:#191821;
+      --bg:#0f0e12;           /* deep charcoal */
+      --panel:#15141b;        /* panels */
+      --panel-2:#191821;      /* darker panels */
       --line:rgba(255,255,255,.08);
-      --text:#f2f2f3;
-      --muted:#c7c7ce;
-      --gold:#d4af37;
-      --gold-2:#b9961f;
-      --accent:#6c2a70;
-      --radius:18px;
+      --text:#f2f2f3;         /* soft white */
+      --muted:#c7c7ce;        /* muted text */
+      --gold:#d4af37;         /* brand gold */
+      --gold-2:#b9961f;       /* hover gold */
+      --accent:#6c2a70;       /* plum */
+      --radius:18px;          /* smooth edges */
       --radius-lg:24px;
       --shadow:0 10px 24px rgba(0,0,0,.35);
     }
@@ -125,11 +125,12 @@
     </div>
   </section>
 
-  <!-- SERVICES & STYLES -->
+  <!-- SERVICES & STYLES (accordion with categories & sublists) -->
   <section id="services">
     <div class="container">
       <h2 class="section-title">Services & Styles</h2>
       <p class="section-lead">Tap a category, then open a service to view example photos/videos. Everything is mobile‑friendly and fast.</p>
+
       <div id="services-accordion" class="accordion panel"></div>
     </div>
   </section>
@@ -186,76 +187,99 @@
   </footer>
 
   <script>
+    /*
+      ========= HOW TO HOOK IN YOUR OWN MEDIA =========
+      1) Keep your folders exactly like this in your repo root:
+           images/  (for photos)
+           videos/  (for mp4 clips)
+      2) Rename your files however you want (lowercase + hyphens recommended).
+      3) Below, edit the MEDIA object so each service slug lists the exact filenames you uploaded.
+      4) That's it — the site will render your photos/videos under each service when opened.
+    */
+
+    // Define all services grouped into categories and groups
     const SERVICES = [
       {
         title: 'Hair',
         groups: [
-          { title: 'Braids', items: [{ slug: 'braids', label: 'Braids Gallery' }] }
+          { title: 'Braids', items: [
+            { slug: 'box-braids', label: 'Box Braids' },
+            { slug: 'knotless-braids', label: 'Knotless Braids' },
+            { slug: 'feed-in-braids', label: 'Feed-in Braids' }
+          ]},
+          { title: 'Cornrows', items: [ { slug: 'cornrows', label: 'Cornrows' } ] },
+          { title: 'Weaves & Extensions', items: [
+            { slug: 'weave-on', label: 'Weave On' },
+            { slug: 'pick-and-drop', label: 'Pick & Drop' },
+            { slug: 'bonding', label: 'Bonding' }
+          ]},
+          { title: 'Relaxers & Perms', items: [
+            { slug: 'relaxing', label: 'Relaxing' },
+            { slug: 'perms', label: 'Perms' }
+          ]},
+          { title: 'Styling', items: [
+            { slug: 'ponytail', label: 'Ponytail' },
+            { slug: 'wash-and-tong', label: 'Wash & Tong' }
+          ]},
+          { title: 'Treatments', items: [ { slug: 'hair-treatment', label: 'Hair Treatment' } ] }
+        ]
+      },
+      {
+        title: 'Lashes',
+        groups: [
+          { title: 'Extensions', items: [
+            { slug: 'eyelash-extension', label: 'Eyelash Extension' },
+            { slug: 'cluster-lashes', label: 'Cluster Lashes' },
+            { slug: 'express-lashes', label: 'Express Lashes' }
+          ]}
+        ]
+      },
+      {
+        title: 'Brows',
+        groups: [
+          { title: 'Brow Services', items: [
+            { slug: 'brow-lamination', label: 'Brow Lamination' },
+            { slug: 'permanent-brows', label: 'Permanent / Semi‑Permanent Brows' },
+            { slug: 'ombre-brows', label: 'Ombre / Powder Brows' }
+          ]}
+        ]
+      },
+      {
+        title: 'Piercing',
+        groups: [
+          { title: 'Piercing', items: [ { slug: 'ear-nose-piercing', label: 'Ear & Nose Piercing' } ] }
         ]
       }
     ];
 
+    // ======== PUT YOUR FILE NAMES HERE ========
+    // For each slug above, list images/videos that live in images/ and videos/
+    // Example: images: ['images/box-braids-1.jpg','images/box-braids-2.jpg']
+    //          videos: ['videos/box-braids.mp4']
     const MEDIA = {
-      'braids': {
-        images: [
-          'images/braid1', 'images/braid2', 'images/braid3',
-          'images/braid4', 'images/braid5', 'images/braid6'
-        ],
-        videos: [
-          'videos/video1', 'videos/video2'
-        ]
-      }
+      'box-braids': { images: ['images/box-braids-1.jpg','images/box-braids-2.jpg'], videos: ['videos/box-braids.mp4'] },
+      'knotless-braids': { images: ['images/knotless-braids-1.jpg'], videos: [] },
+      'feed-in-braids': { images: ['images/feed-in-braids-1.jpg'], videos: [] },
+      'cornrows': { images: ['images/cornrows-1.jpg'], videos: [] },
+      'weave-on': { images: ['images/weave-on-1.jpg'], videos: [] },
+      'pick-and-drop': { images: ['images/pick-and-drop-1.jpg'], videos: [] },
+      'bonding': { images: ['images/bonding-1.jpg'], videos: [] },
+      'relaxing': { images: ['images/relaxing-1.jpg'], videos: [] },
+      'perms': { images: ['images/perms-1.jpg'], videos: [] },
+      'ponytail': { images: ['images/ponytail-1.jpg'], videos: [] },
+      'wash-and-tong': { images: ['images/wash-and-tong-1.jpg'], videos: [] },
+      'hair-treatment': { images: ['images/hair-treatment-1.jpg'], videos: [] },
+      'eyelash-extension': { images: ['images/eyelash-extension-1.jpg'], videos: [] },
+      'cluster-lashes': { images: ['images/cluster-lashes-1.jpg'], videos: [] },
+      'express-lashes': { images: ['images/express-lashes-1.jpg'], videos: [] },
+      'brow-lamination': { images: ['images/brow-lamination-1.jpg'], videos: [] },
+      'permanent-brows': { images: ['images/permanent-brows-1.jpg'], videos: [] },
+      'ombre-brows': { images: ['images/ombre-brows-1.jpg'], videos: [] },
+      'ear-nose-piercing': { images: ['images/ear-nose-piercing-1.jpg'], videos: [] }
     };
 
+    // ======= RENDER ACCORDION =======
     const accordion = document.getElementById('services-accordion');
-
-    function openService(slug, label, container){
-      const existing = container.querySelector('.media');
-      if(existing) existing.remove();
-
-      const media = MEDIA[slug] || { images: [], videos: [] };
-      const wrap = document.createElement('div');
-      wrap.className = 'media';
-
-      const grid = document.createElement('div');
-      grid.className = 'media-grid';
-
-      (media.images || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<img alt="${label}" src="${src}">`;
-        const img = fig.querySelector('img');
-        img.onerror = () => fig.remove();
-        grid.appendChild(fig);
-      });
-
-      (media.videos || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
-        const vid = fig.querySelector('video');
-        vid.onerror = () => fig.remove();
-        grid.appendChild(fig);
-      });
-
-      if(grid.children.length === 0){
-        wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>.</div>`;
-      } else {
-        const title = document.createElement('div');
-        title.className = 'section-lead';
-        title.style.marginTop = '6px';
-        title.textContent = `${label} — examples`;
-        wrap.appendChild(title);
-        wrap.appendChild(grid);
-      }
-
-      const cta = document.createElement('div');
-      cta.style.marginTop = '8px';
-      cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
-      wrap.appendChild(cta);
-
-      container.appendChild(wrap);
-    }
 
     SERVICES.forEach(cat => {
       const det = document.createElement('details');
@@ -287,7 +311,58 @@
 
       accordion.appendChild(det);
     });
+
+    function openService(slug, label, container){
+      // Remove existing media blocks under this group
+      const existing = container.querySelector('.media');
+      if(existing) existing.remove();
+
+      const media = MEDIA[slug] || { images: [], videos: [] };
+      const wrap = document.createElement('div');
+      wrap.className = 'media';
+
+      const grid = document.createElement('div');
+      grid.className = 'media-grid';
+
+      // Render images
+      (media.images || []).forEach(src => {
+        const fig = document.createElement('figure');
+        fig.className = 'thumb';
+        fig.innerHTML = `<img alt="${label}" src="${src}">`;
+        const img = fig.querySelector('img');
+        img.onerror = () => fig.remove(); // hide if missing
+        grid.appendChild(fig);
+      });
+
+      // Render videos
+      (media.videos || []).forEach(src => {
+        const fig = document.createElement('figure');
+        fig.className = 'thumb';
+        fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
+        const vid = fig.querySelector('video');
+        vid.onerror = () => fig.remove();
+        grid.appendChild(fig);
+      });
+
+      if(grid.children.length === 0){
+        wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>. Add files and list them inside <code>MEDIA['${slug}']</code> at the bottom of this file.</div>`;
+      } else {
+        const title = document.createElement('div');
+        title.className = 'section-lead';
+        title.style.marginTop = '6px';
+        title.textContent = `${label} — examples`;
+        wrap.appendChild(title);
+        wrap.appendChild(grid);
+      }
+
+      // CTA
+      const cta = document.createElement('div');
+      cta.style.marginTop = '8px';
+      cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
+      wrap.appendChild(cta);
+
+      container.appendChild(wrap);
+    }
   </script>
 </body>
 </html>
-
