@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f0e12;           /* deep charcoal */
-      --panel:#15141b;        /* panels */
-      --panel-2:#191821;      /* darker panels */
+      --bg:#0f0e12;
+      --panel:#15141b;
+      --panel-2:#191821;
       --line:rgba(255,255,255,.08);
-      --text:#f2f2f3;         /* soft white */
-      --muted:#c7c7ce;        /* muted text */
-      --gold:#d4af37;         /* brand gold */
-      --gold-2:#b9961f;       /* hover gold */
-      --accent:#6c2a70;       /* plum */
-      --radius:18px;          /* smooth edges */
+      --text:#f2f2f3;
+      --muted:#c7c7ce;
+      --gold:#d4af37;
+      --gold-2:#b9961f;
+      --accent:#6c2a70;
+      --radius:18px;
       --radius-lg:24px;
       --shadow:0 10px 24px rgba(0,0,0,.35);
     }
@@ -125,12 +125,11 @@
     </div>
   </section>
 
-  <!-- SERVICES & STYLES (accordion with categories & sublists) -->
+  <!-- SERVICES & STYLES -->
   <section id="services">
     <div class="container">
       <h2 class="section-title">Services & Styles</h2>
       <p class="section-lead">Tap a category, then open a service to view example photos/videos. Everything is mobile‑friendly and fast.</p>
-
       <div id="services-accordion" class="accordion panel"></div>
     </div>
   </section>
@@ -187,131 +186,76 @@
   </footer>
 
   <script>
-    /*
-      ========= HOW TO HOOK IN YOUR OWN MEDIA =========
-      1) Keep your folders exactly like this in your repo root:
-           images/  (for photos)
-           videos/  (for mp4 clips)
-      2) Rename your files however you want (lowercase + hyphens recommended).
-      3) Below, edit the MEDIA object so each service slug lists the exact filenames you uploaded.
-      4) That's it — the site will render your photos/videos under each service when opened.
-    */
+    const SERVICES = [
+      {
+        title: 'Hair',
+        groups: [
+          { title: 'Braids', items: [{ slug: 'braids', label: 'Braids Gallery' }] }
+        ]
+      }
+    ];
 
-    // Define all services grouped into categories and groups
-<script>
-  const SERVICES = [
-    {
-      title: 'Hair',
-      groups: [
-        { title: 'Braids', items: [
-          { slug: 'braids', label: 'Braids Gallery' }
-        ]}
-      ]
-    }
-  ];
+    const MEDIA = {
+      'braids': {
+        images: [
+          'images/braid1', 'images/braid2', 'images/braid3',
+          'images/braid4', 'images/braid5', 'images/braid6'
+        ],
+        videos: [
+          'videos/video1', 'videos/video2'
+        ]
+      }
+    };
 
-  // Updated MEDIA object for your 6 images and 2 videos
-  const MEDIA = {
-    'braids': {
-      images: [
-        'images/braid1', 
-        'images/braid2',
-        'images/braid3',
-        'images/braid4',
-        'images/braid5',
-        'images/braid6'
-      ],
-      videos: [
-        'videos/video1',
-        'videos/video2'
-      ]
-    }
-  };
+    const accordion = document.getElementById('services-accordion');
 
-  const accordion = document.getElementById('services-accordion');
+    function openService(slug, label, container){
+      const existing = container.querySelector('.media');
+      if(existing) existing.remove();
 
-  SERVICES.forEach(cat => {
-    const det = document.createElement('details');
-    det.className = 'category';
-    const sum = document.createElement('summary');
-    sum.innerHTML = `<h3>${cat.title}</h3><span class="arrow">▶</span>`;
-    det.appendChild(sum);
+      const media = MEDIA[slug] || { images: [], videos: [] };
+      const wrap = document.createElement('div');
+      wrap.className = 'media';
 
-    cat.groups.forEach(group => {
-      const g = document.createElement('div');
-      g.className = 'group';
-      g.innerHTML = `<h4>${group.title}</h4>`;
+      const grid = document.createElement('div');
+      grid.className = 'media-grid';
 
-      const list = document.createElement('div');
-      list.className = 'services-list';
-
-      group.items.forEach(item => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'service-btn';
-        btn.innerHTML = `<span>${item.label}</span><span style="opacity:.7">View</span>`;
-        btn.addEventListener('click', () => openService(item.slug, item.label, g));
-        list.appendChild(btn);
+      (media.images || []).forEach(src => {
+        const fig = document.createElement('figure');
+        fig.className = 'thumb';
+        fig.innerHTML = `<img alt="${label}" src="${src}">`;
+        const img = fig.querySelector('img');
+        img.onerror = () => fig.remove();
+        grid.appendChild(fig);
       });
 
-      g.appendChild(list);
-      det.appendChild(g);
-    });
+      (media.videos || []).forEach(src => {
+        const fig = document.createElement('figure');
+        fig.className = 'thumb';
+        fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
+        const vid = fig.querySelector('video');
+        vid.onerror = () => fig.remove();
+        grid.appendChild(fig);
+      });
 
-    accordion.appendChild(det);
-  });
+      if(grid.children.length === 0){
+        wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>.</div>`;
+      } else {
+        const title = document.createElement('div');
+        title.className = 'section-lead';
+        title.style.marginTop = '6px';
+        title.textContent = `${label} — examples`;
+        wrap.appendChild(title);
+        wrap.appendChild(grid);
+      }
 
-  function openService(slug, label, container){
-    const existing = container.querySelector('.media');
-    if(existing) existing.remove();
+      const cta = document.createElement('div');
+      cta.style.marginTop = '8px';
+      cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
+      wrap.appendChild(cta);
 
-    const media = MEDIA[slug] || { images: [], videos: [] };
-    const wrap = document.createElement('div');
-    wrap.className = 'media';
-
-    const grid = document.createElement('div');
-    grid.className = 'media-grid';
-
-    (media.images || []).forEach(src => {
-      const fig = document.createElement('figure');
-      fig.className = 'thumb';
-      fig.innerHTML = `<img alt="${label}" src="${src}">`;
-      const img = fig.querySelector('img');
-      img.onerror = () => fig.remove();
-      grid.appendChild(fig);
-    });
-
-    (media.videos || []).forEach(src => {
-      const fig = document.createElement('figure');
-      fig.className = 'thumb';
-      fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
-      const vid = fig.querySelector('video');
-      vid.onerror = () => fig.remove();
-      grid.appendChild(fig);
-    });
-
-    if(grid.children.length === 0){
-      wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>.</div>`;
-    } else {
-      const title = document.createElement('div');
-      title.className = 'section-lead';
-      title.style.marginTop = '6px';
-      title.textContent = `${label} — examples`;
-      wrap.appendChild(title);
-      wrap.appendChild(grid);
+      container.appendChild(wrap);
     }
-
-    const cta = document.createElement('div');
-    cta.style.marginTop = '8px';
-    cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
-    wrap.appendChild(cta);
-
-    container.appendChild(wrap);
-  }
-</script>
-
-    // ======= RENDER ACCORDION =======
-    const accordion = document.getElementById('services-accordion');
 
     SERVICES.forEach(cat => {
       const det = document.createElement('details');
@@ -343,61 +287,7 @@
 
       accordion.appendChild(det);
     });
-
-    function openService(slug, label, container){
-      // Remove existing media blocks under this group
-      const existing = container.querySelector('.media');
-      if(existing) existing.remove();
-
-      const media = MEDIA[slug] || { images: [], videos: [] };
-      const wrap = document.createElement('div');
-      wrap.className = 'media';
-
-      const grid = document.createElement('div');
-      grid.className = 'media-grid';
-
-      // Render images
-      (media.images || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<img alt="${label}" src="${src}">`;
-        const img = fig.querySelector('img');
-        img.onerror = () => fig.remove(); // hide if missing
-        grid.appendChild(fig);
-      });
-
-      // Render videos
-      (media.videos || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
-        const vid = fig.querySelector('video');
-        vid.onerror = () => fig.remove();
-        grid.appendChild(fig);
-      });
-
-      if(grid.children.length === 0){
-        wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>. Add files and list them inside <code>MEDIA['${slug}']</code> at the bottom of this file.</div>`;
-      } else {
-        const title = document.createElement('div');
-        title.className = 'section-lead';
-        title.style.marginTop = '6px';
-        title.textContent = `${label} — examples`;
-        wrap.appendChild(title);
-        wrap.appendChild(grid);
-      }
-
-      // CTA
-      const cta = document.createElement('div');
-      cta.style.marginTop = '8px';
-      cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
-      wrap.appendChild(cta);
-
-      container.appendChild(wrap);
-    }
   </script>
 </body>
 </html>
-
-
 
