@@ -1,368 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Exquisite Beauty — African Caribbean Hair & Beauty</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f0e12;           /* deep charcoal */
-      --panel:#15141b;        /* panels */
-      --panel-2:#191821;      /* darker panels */
-      --line:rgba(255,255,255,.08);
-      --text:#f2f2f3;         /* soft white */
-      --muted:#c7c7ce;        /* muted text */
-      --gold:#d4af37;         /* brand gold */
-      --gold-2:#b9961f;       /* hover gold */
-      --accent:#6c2a70;       /* plum */
-      --radius:18px;          /* smooth edges */
-      --radius-lg:24px;
-      --shadow:0 10px 24px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exquisite Beauty — African Caribbean Hair & Beauty</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0e12;
+  --panel:#15141b;
+  --panel-2:#191821;
+  --line:rgba(255,255,255,.08);
+  --text:#f2f2f3;
+  --muted:#c7c7ce;
+  --gold:#d4af37;
+  --gold-2:#b9961f;
+  --radius:18px;
+  --radius-lg:24px;
+  --shadow:0 10px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth}
+img, video{max-width:100%;display:block;object-fit:cover}
+a{color:inherit;text-decoration:none}
 
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:30;background:rgba(15,14,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-badge{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f7d86f);display:grid;place-items:center;color:#000;font-weight:800;box-shadow:var(--shadow)}
-    .brand h1{font-family:'Playfair Display',serif;font-size:20px;margin:0}
-    .nav-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .link{opacity:.92;padding:8px 12px;border-radius:999px;border:1px solid transparent}
-    .link:hover{border-color:var(--line)}
-    .cta{padding:10px 16px;border-radius:999px;background:var(--gold);color:#000;font-weight:700;border:none}
-    .cta:hover{background:var(--gold-2)}
+/* NAV */
+.nav{position:sticky;top:0;z-index:30;background:rgba(15,14,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-badge{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f7d86f);display:grid;place-items:center;color:#000;font-weight:800;box-shadow:var(--shadow)}
+.nav-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.link{opacity:.92;padding:8px 12px;border-radius:999px;border:1px solid transparent}
+.link:hover{border-color:var(--line)}
+.cta{padding:10px 16px;border-radius:999px;background:var(--gold);color:#000;font-weight:700;border:none}
+.cta:hover{background:var(--gold-2)}
 
-    /* HERO */
-    .hero{position:relative;min-height:70vh;display:grid;place-items:center;background:radial-gradient(65% 60% at 75% 25%, rgba(212,175,55,.2), transparent 60%), linear-gradient(180deg, #12111a 0%, #0e0d12 100%)}
-    .hero-inner{padding:90px 0;text-align:center;display:grid;gap:14px}
-    .headline{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,56px);line-height:1.06;margin:0}
-    .sub{color:var(--muted);font-size:clamp(14px,2.4vw,18px)}
-    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-    .btn{padding:12px 18px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel);color:#fff}
-    .btn:hover{border-color:rgba(212,175,55,.7);color:var(--gold)}
-    .btn-primary{background:var(--gold);color:#000;border:none;font-weight:700}
-    .btn-primary:hover{background:var(--gold-2)}
+/* HERO */
+.hero{position:relative;min-height:70vh;display:grid;place-items:center;background:radial-gradient(65% 60% at 75% 25%, rgba(212,175,55,.2), transparent 60%), linear-gradient(180deg, #12111a 0%, #0e0d12 100%)}
+.hero-inner{padding:90px 20px;text-align:center;display:grid;gap:14px}
+.headline{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,56px);line-height:1.06;margin:0}
+.sub{color:var(--muted);font-size:clamp(14px,2.4vw,18px)}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.btn{padding:12px 18px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel);color:#fff}
+.btn:hover{border-color:rgba(212,175,55,.7);color:var(--gold)}
+.btn-primary{background:var(--gold);color:#000;border:none;font-weight:700}
+.btn-primary:hover{background:var(--gold-2)}
 
-    /* GENERIC SECTIONS */
-    section{padding:70px 0;border-top:1px solid var(--line)}
-    h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);margin:0 0 10px}
-    p.section-lead{color:var(--muted);margin:0 0 18px}
+/* GENERIC SECTIONS */
+section{padding:70px 20px;border-top:1px solid var(--line)}
+h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);margin:0 0 10px}
+p.section-lead{color:var(--muted);margin:0 0 18px}
 
-    /* CARDS / PANELS */
-    .panel{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
-    .chip{display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:12px;opacity:.95}
+/* PANELS */
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
+.chip{display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:12px;opacity:.95}
 
-    /* SERVICES ACCORDION */
-    .accordion{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
-    .accordion details{background:linear-gradient(180deg,var(--panel),var(--panel-2));}
-    .accordion summary{list-style:none;cursor:pointer;padding:16px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-    .accordion summary h3{margin:0;font-size:18px}
-    .accordion summary .arrow{transition:.2s transform}
-    .accordion details[open] summary .arrow{transform:rotate(90deg)}
-    .group{padding:14px 18px;border-top:1px dashed var(--line)}
-    .group h4{margin:0 0 10px;font-size:16px;color:#e8e7ee}
-    .services-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media(max-width:760px){.services-list{grid-template-columns:1fr}}
-    .service-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:var(--radius);border:1px solid var(--line);background:#14131a}
-    .service-btn:hover{border-color:rgba(212,175,55,.7)}
+/* ACCORDION */
+.accordion details{background:linear-gradient(180deg,var(--panel),var(--panel-2));margin-bottom:10px;border-radius:var(--radius-lg);overflow:hidden}
+.accordion summary{list-style:none;cursor:pointer;padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.accordion summary h3{margin:0;font-size:18px}
+.accordion summary .arrow{transition:.2s transform}
+details[open] summary .arrow{transform:rotate(90deg)}
+.group{padding:14px 18px;border-top:1px dashed var(--line)}
+.group h4{margin:0 0 10px;font-size:16px;color:#e8e7ee}
+.services-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:760px){.services-list{grid-template-columns:1fr}}
+.service-btn{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border-radius:var(--radius);border:1px solid var(--line);background:#14131a}
+.service-btn:hover{border-color:rgba(212,175,55,.7)}
 
-    .media{display:grid;gap:10px;margin-top:12px}
-    .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    @media(max-width:900px){.media-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.media-grid{grid-template-columns:1fr}}
-    .thumb{position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line)}
-    .thumb img{aspect-ratio:4/3;object-fit:cover;width:100%;height:100%;transition:transform .45s}
-    .thumb:hover img{transform:scale(1.05)}
-    .thumb video{width:100%;height:auto;border-radius:var(--radius);display:block}
+.media{display:grid;gap:10px;margin-top:12px}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:900px){.media-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.media-grid{grid-template-columns:1fr}}
+.thumb{position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);height:250px}
+.thumb img, .thumb video{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.thumb:hover img, .thumb:hover video{transform:scale(1.05)}
 
-    /* SALES + HOURS */
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    @media(max-width:900px){.two-col{grid-template-columns:1fr}}
-    .list{display:grid;gap:8px}
-    .list li{background:var(--panel);border:1px solid var(--line);padding:10px 12px;border-radius:var(--radius)}
+/* SALES + HOURS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}}
+.list{display:grid;gap:8px}
+.list li{background:var(--panel);border:1px solid var(--line);padding:10px 12px;border-radius:var(--radius)}
 
-    /* CONTACT */
-    .contact-card{display:grid;gap:14px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
-    .contact-row{display:flex;gap:12px;align-items:center}
-    .icon{width:22px;height:22px;display:inline-block}
+/* CONTACT */
+.contact-card{display:grid;gap:14px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow)}
+.contact-row{display:flex;gap:12px;align-items:center}
+.icon{width:22px;height:22px;display:inline-block}
 
-    footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center}
-  </style>
+footer{padding:28px 20px;border-top:1px solid var(--line);color:var(--muted);text-align:center}
+</style>
 </head>
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="brand-badge">EB</div>
-        <h1>Exquisite Beauty</h1>
-      </div>
-      <div class="nav-links">
-        <a class="link" href="#services">Services</a>
-        <a class="link" href="#sales-hours">Sales</a>
-        <a class="link" href="#contact">Contact</a>
-        <a class="cta" href="booking.html">Book Now</a>
-      </div>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="brand-badge">EB</div>
+      <h1>Exquisite Beauty</h1>
+    </div>
+    <div class="nav-links">
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#sales-hours">Sales</a>
+      <a class="link" href="#contact">Contact</a>
+      <a class="cta" href="booking.html">Book Now</a>
     </div>
   </div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h2 class="headline">Where Heritage Meets Style</h2>
-      <p class="sub">Premium African & Caribbean hair and beauty — expert protective styling, precision brows, and luxury lash services.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="booking.html">Book Your Appointment</a>
-        <a class="btn" href="#services">Explore Services</a>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <h2 class="headline">Where Heritage Meets Style</h2>
+    <p class="sub">Premium African & Caribbean hair and beauty — expert protective styling, precision brows, and luxury lash services.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="booking.html">Book Your Appointment</a>
+      <a class="btn" href="#services">Explore Services</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES & STYLES (accordion with categories & sublists) -->
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services & Styles</h2>
-      <p class="section-lead">Tap a category, then open a service to view example photos/videos. Everything is mobile‑friendly and fast.</p>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Services & Styles</h2>
+    <p class="section-lead">Tap a category, then open a service to view example photos/videos.</p>
+    <div id="services-accordion" class="accordion panel"></div>
+  </div>
+</section>
 
-      <div id="services-accordion" class="accordion panel"></div>
+<!-- SALES + HOURS -->
+<section id="sales-hours">
+  <div class="container two-col">
+    <div class="panel">
+      <h2 class="section-title" style="margin-bottom:6px">Retail Sales</h2>
+      <ul class="list">
+        <li>Hair Extensions</li>
+        <li>Wigs</li>
+        <li>African Fabrics</li>
+        <li>Shoes & Bags</li>
+        <li>Jewellery & Beads</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- SALES + HOURS -->
-  <section id="sales-hours">
-    <div class="container two-col">
-      <div class="panel">
-        <h2 class="section-title" style="margin-bottom:6px">Retail Sales</h2>
-        <p class="section-lead">Premium products available in‑store.</p>
-        <ul class="list">
-          <li>Hair Extensions</li>
-          <li>Wigs</li>
-          <li>African Fabrics</li>
-          <li>Shoes & Bags</li>
-          <li>Jewellery & Beads</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <h2 class="section-title" style="margin-bottom:6px">Opening Times</h2>
-        <ul class="list">
-          <li>Monday — Friday: 10:00 – 20:00</li>
-          <li>Saturday: 09:00 – 21:00</li>
-          <li>Sunday: Closed</li>
-        </ul>
-        <div style="margin-top:10px"><a class="btn-primary" href="booking.html">Book a Slot</a></div>
-      </div>
+    <div class="panel">
+      <h2 class="section-title" style="margin-bottom:6px">Opening Times</h2>
+      <ul class="list">
+        <li>Mon-Fri: 10:00 – 20:00</li>
+        <li>Sat: 09:00 – 21:00</li>
+        <li>Sun: Closed</li>
+      </ul>
+      <div style="margin-top:10px"><a class="btn-primary" href="booking.html">Book a Slot</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Us</h2>
-      <div class="contact-card">
-        <div class="contact-row"><span class="icon" aria-hidden="true">📍</span><div>118 Church Elm Lane, Dagenham, RM10 9RL</div></div>
-        <div class="contact-row"><span class="icon" aria-hidden="true">📞</span><div><a href="tel:+447777147949">07777 147 949</a> · <a href="tel:+447939298848">07939 298 848</a></div></div>
-        <div class="contact-row"><span class="icon" aria-hidden="true">✉️</span><div><a href="mailto:exquisitebeautyw@gmail.com">exquisitebeautyw@gmail.com</a></div></div>
-        <div class="contact-row">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-          <a href="https://instagram.com/exquisitebeautyw" target="_blank" rel="noopener">@exquisitebeautyw</a>
-        </div>
-        <div class="contact-row">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.9 3.1c-.6.2-1.3.5-2 .6.7-.4 1.2-1.1 1.4-1.9-.7.4-1.4.7-2.2.9A3.3 3.3 0 0 0 12 5.8c0 .3 0 .6.1.9C8.5 6.5 5.5 4.9 3.5 2.6c-.4.7-.6 1.5-.6 2.4 0 1.6.8 3 2.1 3.8-.6 0-1.2-.2-1.8-.5v.1c0 2.3 1.7 4.2 3.8 4.7-.4.1-.8.1-1.2.1-.3 0-.6 0-.9-.1a3.3 3.3 0 0 0 3.1 2.3A6.6 6.6 0 0 1 2 18.3c-.4 0-.8 0-1.2-.1A9.3 9.3 0 0 0 6.2 20c6.6 0 10.2-5.5 10.2-10.2v-.5c.7-.5 1.3-1.1 1.8-1.8-.6.3-1.3.5-2 .6.7-.4 1.2-1.1 1.5-1.9z"/></svg>
-          <a href="https://twitter.com/exquisitebworld" target="_blank" rel="noopener">@exquisitebworld</a>
-        </div>
-        <div class="contact-row"><span class="icon" aria-hidden="true">🕘</span><div>Mon–Fri 10am–8pm · Sat 9am–9pm</div></div>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-card">
+      <div class="contact-row"><span class="icon" aria-hidden="true">📍</span><div>118 Church Elm Lane, Dagenham, RM10 9RL</div></div>
+      <div class="contact-row"><span class="icon" aria-hidden="true">📞</span><div><a href="tel:+447777147949">07777 147 949</a> · <a href="tel:+447939298848">07939 298 848</a></div></div>
+      <div class="contact-row"><span class="icon" aria-hidden="true">✉️</span><div><a href="mailto:exquisitebeautyw@gmail.com">exquisitebeautyw@gmail.com</a></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="container">© 2025 Exquisite Beauty. All rights reserved.</div>
-  </footer>
+<footer>© 2025 Exquisite Beauty. All rights reserved.</footer>
 
-  <script>
-    /*
-      ========= HOW TO HOOK IN YOUR OWN MEDIA =========
-      1) Keep your folders exactly like this in your repo root:
-           images/  (for photos)
-           videos/  (for mp4 clips)
-      2) Rename your files however you want (lowercase + hyphens recommended).
-      3) Below, edit the MEDIA object so each service slug lists the exact filenames you uploaded.
-      4) That's it — the site will render your photos/videos under each service when opened.
-    */
+<script>
+const SERVICES = [
+  { title:'Hair', groups:[{title:'Braids', items:[{slug:'braids',label:'Braids Gallery'}]}] }
+];
 
-    // Define all services grouped into categories and groups
-    const SERVICES = [
-      {
-        title: 'Hair',
-        groups: [
-          { title: 'Braids', items: [
-            { slug: 'box-braids', label: 'Box Braids' },
-            { slug: 'knotless-braids', label: 'Knotless Braids' },
-            { slug: 'feed-in-braids', label: 'Feed-in Braids' }
-          ]},
-          { title: 'Cornrows', items: [ { slug: 'cornrows', label: 'Cornrows' } ] },
-          { title: 'Weaves & Extensions', items: [
-            { slug: 'weave-on', label: 'Weave On' },
-            { slug: 'pick-and-drop', label: 'Pick & Drop' },
-            { slug: 'bonding', label: 'Bonding' }
-          ]},
-          { title: 'Relaxers & Perms', items: [
-            { slug: 'relaxing', label: 'Relaxing' },
-            { slug: 'perms', label: 'Perms' }
-          ]},
-          { title: 'Styling', items: [
-            { slug: 'ponytail', label: 'Ponytail' },
-            { slug: 'wash-and-tong', label: 'Wash & Tong' }
-          ]},
-          { title: 'Treatments', items: [ { slug: 'hair-treatment', label: 'Hair Treatment' } ] }
-        ]
-      },
-      {
-        title: 'Lashes',
-        groups: [
-          { title: 'Extensions', items: [
-            { slug: 'eyelash-extension', label: 'Eyelash Extension' },
-            { slug: 'cluster-lashes', label: 'Cluster Lashes' },
-            { slug: 'express-lashes', label: 'Express Lashes' }
-          ]}
-        ]
-      },
-      {
-        title: 'Brows',
-        groups: [
-          { title: 'Brow Services', items: [
-            { slug: 'brow-lamination', label: 'Brow Lamination' },
-            { slug: 'permanent-brows', label: 'Permanent / Semi‑Permanent Brows' },
-            { slug: 'ombre-brows', label: 'Ombre / Powder Brows' }
-          ]}
-        ]
-      },
-      {
-        title: 'Piercing',
-        groups: [
-          { title: 'Piercing', items: [ { slug: 'ear-nose-piercing', label: 'Ear & Nose Piercing' } ] }
-        ]
-      }
-    ];
+const MEDIA = {
+  'braids': {
+    images:['images/braid1.jpg','images/braid2.jpg','images/braid3.jpg','images/braid4.jpg','images/braid5.jpg','images/braid6.jpg'],
+    videos:['videos/video1.mp4','videos/video2.mp4'],
+    placeholder:'images/placeholder.jpg'
+  }
+};
 
-    // ======== PUT YOUR FILE NAMES HERE ========
-    // For each slug above, list images/videos that live in images/ and videos/
-    // Example: images: ['images/box-braids-1.jpg','images/box-braids-2.jpg']
-    //          videos: ['videos/box-braids.mp4']
-    const MEDIA = {
-      'box-braids': { images: ['images/box-braids-1.jpg','images/box-braids-2.jpg'], videos: ['videos/box-braids.mp4'] },
-      'knotless-braids': { images: ['images/knotless-braids-1.jpg'], videos: [] },
-      'feed-in-braids': { images: ['images/feed-in-braids-1.jpg'], videos: [] },
-      'cornrows': { images: ['images/cornrows-1.jpg'], videos: [] },
-      'weave-on': { images: ['images/weave-on-1.jpg'], videos: [] },
-      'pick-and-drop': { images: ['images/pick-and-drop-1.jpg'], videos: [] },
-      'bonding': { images: ['images/bonding-1.jpg'], videos: [] },
-      'relaxing': { images: ['images/relaxing-1.jpg'], videos: [] },
-      'perms': { images: ['images/perms-1.jpg'], videos: [] },
-      'ponytail': { images: ['images/ponytail-1.jpg'], videos: [] },
-      'wash-and-tong': { images: ['images/wash-and-tong-1.jpg'], videos: [] },
-      'hair-treatment': { images: ['images/hair-treatment-1.jpg'], videos: [] },
-      'eyelash-extension': { images: ['images/eyelash-extension-1.jpg'], videos: [] },
-      'cluster-lashes': { images: ['images/cluster-lashes-1.jpg'], videos: [] },
-      'express-lashes': { images: ['images/express-lashes-1.jpg'], videos: [] },
-      'brow-lamination': { images: ['images/brow-lamination-1.jpg'], videos: [] },
-      'permanent-brows': { images: ['images/permanent-brows-1.jpg'], videos: [] },
-      'ombre-brows': { images: ['images/ombre-brows-1.jpg'], videos: [] },
-      'ear-nose-piercing': { images: ['images/ear-nose-piercing-1.jpg'], videos: [] }
-    };
+const accordion = document.getElementById('services-accordion');
 
-    // ======= RENDER ACCORDION =======
-    const accordion = document.getElementById('services-accordion');
-
-    SERVICES.forEach(cat => {
-      const det = document.createElement('details');
-      det.className = 'category';
-      const sum = document.createElement('summary');
-      sum.innerHTML = `<h3>${cat.title}</h3><span class="arrow">▶</span>`;
-      det.appendChild(sum);
-
-      cat.groups.forEach(group => {
-        const g = document.createElement('div');
-        g.className = 'group';
-        g.innerHTML = `<h4>${group.title}</h4>`;
-
-        const list = document.createElement('div');
-        list.className = 'services-list';
-
-        group.items.forEach(item => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'service-btn';
-          btn.innerHTML = `<span>${item.label}</span><span style="opacity:.7">View</span>`;
-          btn.addEventListener('click', () => openService(item.slug, item.label, g));
-          list.appendChild(btn);
-        });
-
-        g.appendChild(list);
-        det.appendChild(g);
-      });
-
-      accordion.appendChild(det);
+SERVICES.forEach(cat=>{
+  const det=document.createElement('details');
+  const sum=document.createElement('summary');
+  sum.innerHTML=`<h3>${cat.title}</h3><span class="arrow">▶</span>`;
+  det.appendChild(sum);
+  cat.groups.forEach(group=>{
+    const g=document.createElement('div'); g.className='group';
+    g.innerHTML=`<h4>${group.title}</h4>`;
+    const list=document.createElement('div'); list.className='services-list';
+    group.items.forEach(item=>{
+      const btn=document.createElement('button'); btn.type='button'; btn.className='service-btn';
+      btn.innerHTML=`<span>${item.label}</span><span style="opacity:.7">View</span>`;
+      btn.addEventListener('click',()=>openService(item.slug,item.label,g));
+      list.appendChild(btn);
     });
+    g.appendChild(list);
+    det.appendChild(g);
+  });
+  accordion.appendChild(det);
+});
 
-    function openService(slug, label, container){
-      // Remove existing media blocks under this group
-      const existing = container.querySelector('.media');
-      if(existing) existing.remove();
+function openService(slug,label,container){
+  const existing=container.querySelector('.media');
+  if(existing) existing.remove();
+  const media=MEDIA[slug]||{images:[],videos:[],placeholder:'images/placeholder.jpg'};
+  const wrap=document.createElement('div'); wrap.className='media';
+  const grid=document.createElement('div'); grid.className='media-grid';
 
-      const media = MEDIA[slug] || { images: [], videos: [] };
-      const wrap = document.createElement('div');
-      wrap.className = 'media';
+  (media.images||[]).forEach(src=>{
+    const fig=document.createElement('figure'); fig.className='thumb';
+    const img=document.createElement('img'); img.alt=label; img.src=src;
+    img.onerror=()=>img.src=media.placeholder;
+    fig.appendChild(img); grid.appendChild(fig);
+  });
 
-      const grid = document.createElement('div');
-      grid.className = 'media-grid';
+  (media.videos||[]).forEach(src=>{
+    const fig=document.createElement('figure'); fig.className='thumb';
+    const vid=document.createElement('video'); vid.controls=true; vid.muted=true; vid.playsInline=true; vid.src=src;
+    vid.onerror=()=>{const img=document.createElement('img'); img.src=media.placeholder; fig.innerHTML=''; fig.appendChild(img);}
+    fig.appendChild(vid); grid.appendChild(fig);
+  });
 
-      // Render images
-      (media.images || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<img alt="${label}" src="${src}">`;
-        const img = fig.querySelector('img');
-        img.onerror = () => fig.remove(); // hide if missing
-        grid.appendChild(fig);
-      });
+  if(grid.children.length>0){ wrap.appendChild(grid); } else {
+    wrap.innerHTML=`<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media for <strong>${label}</strong>.</div>`;
+  }
 
-      // Render videos
-      (media.videos || []).forEach(src => {
-        const fig = document.createElement('figure');
-        fig.className = 'thumb';
-        fig.innerHTML = `<video controls muted playsinline src="${src}"></video>`;
-        const vid = fig.querySelector('video');
-        vid.onerror = () => fig.remove();
-        grid.appendChild(fig);
-      });
-
-      if(grid.children.length === 0){
-        wrap.innerHTML = `<div class="panel" style="background:transparent;border:1px dashed var(--line);">No media added yet for <strong>${label}</strong>. Add files and list them inside <code>MEDIA['${slug}']</code> at the bottom of this file.</div>`;
-      } else {
-        const title = document.createElement('div');
-        title.className = 'section-lead';
-        title.style.marginTop = '6px';
-        title.textContent = `${label} — examples`;
-        wrap.appendChild(title);
-        wrap.appendChild(grid);
-      }
-
-      // CTA
-      const cta = document.createElement('div');
-      cta.style.marginTop = '8px';
-      cta.innerHTML = `<a class="btn-primary" href="booking.html">Book this service</a>`;
-      wrap.appendChild(cta);
-
-      container.appendChild(wrap);
-    }
-  </script>
+  const cta=document.createElement('div'); cta.style.marginTop='8px';
+  cta.innerHTML=`<a class="btn-primary" href="booking.html">Book this service</a>`;
+  wrap.appendChild(cta);
+  container.appendChild(wrap);
+}
+</script>
 </body>
 </html>
